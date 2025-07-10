@@ -1,6 +1,10 @@
 import './style.css'
-import {name, age} from './bases/01-types.ts'
-import {pokemonIds, bolbasor, pokemons} from "./bases/02-objects.ts";
+// import {name, age} from './bases/01-types.ts'
+// import {pokemonIds, bolbasor, pokemons} from "./bases/02-objects.ts";
+// import { charmander } from './bases/03-classes.ts';
+// import { charmander } from './bases/04-injection.ts';
+// import { charmander } from './bases/05-decorators.ts';
+import { charmander } from './bases/06-decorators2.ts'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
@@ -13,7 +17,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <a href="https://www.typescriptlang.org/" target="_blank">
       <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
     </a>
-    <h1>Hello Vite ${[pokemons].join(',')} </h1>
+    <h1>Hello Vite ${charmander.name} ${charmander.id} </h1>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
