@@ -1,8 +1,10 @@
-import { Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, ParseUUIDPipe, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { NotFoundError } from 'rxjs';
 import { CarsService } from './cars.service';
+import { CreateCarDto } from './dto/create-car.dto';
 
 @Controller('cars')
+// @UsePipes( ValidationPipe)
 export class CarsController {
   constructor(   
      private readonly carsService: CarsService)
@@ -15,7 +17,7 @@ export class CarsController {
   }
 
   @Get(':id')
-  getCarById( @Param('id', ParseIntPipe) id: number ) {
+  getCarById( @Param('id', new ParseUUIDPipe ({ version: '4'})) id: string ) {
     console.log({id});
 
 
@@ -25,13 +27,13 @@ export class CarsController {
     //   throw new NotFoundException('Carro no encontrado');
     // }
 
-    return this.carsService.findOneById(Number(id));
+    return this.carsService.findOneById(id);
 
   }
 
   @Post()
-  createCar( @Body() body: any) {
-    return body;
+  createCar( @Body() createCarDto: CreateCarDto) {
+    return createCarDto;
   }
 
   @Patch(':id')
