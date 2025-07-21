@@ -7,21 +7,21 @@ import { CreateCarDto, UpdateCarDto } from './dto';
 export class CarsService {
 
         private cars: Car [] = [
-            {
-            id: uuid(),
-            brand: 'Toyota',
-            model: 'Corolla',
-            },
-            {
-            id: uuid(),
-            brand: 'Honda',
-            model: 'Civic',
-            },
-            {
-            id: uuid(),
-            brand: 'Jeep',
-            model: 'Cherokee',
-            },
+            // {
+            // id: uuid(),
+            // brand: 'Toyota',
+            // model: 'Corolla',
+            // },
+            // {
+            // id: uuid(),
+            // brand: 'Honda',
+            // model: 'Civic',
+            // },
+            // {
+            // id: uuid(),
+            // brand: 'Jeep',
+            // model: 'Cherokee',
+            // },
     ];
 
     findAll() {
@@ -74,4 +74,8 @@ export class CarsService {
         message: `Carro con id ${id} eliminado exitosamente`,
         }
 }
+
+    fillCarsWithSeedData( cars: Car[]) {
+        this.cars = cars;
+    }
 }
