@@ -1,4 +1,4 @@
-import { IsString } from "class-validator";
+import { IsString, MinLength, minLength } from "class-validator";
 
 export class CreateCarDto{
 
